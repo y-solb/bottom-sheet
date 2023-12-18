@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../dist/index.js" defer></script>
+    <link rel="stylesheet" href="../style/style.css" />
+    <title>@solb/bottom-sheet</title>
+  </head>
+  <body>
+    <button onclick="document.getElementById('testBottomSheet').openSheet()">
+      openSheet
+    </button>
+    <button
+      onclick="document.getElementById('testBottomSheet').openFullSheet()"
+    >
+      openFullSheet
+    </button>
+
+    <bottom-sheet id="testBottomSheet" title="Title is ...">
+      <main class="_example">
+        <p>content is ...</p>
+        <p>content is ...</p>
+        <div>
+          <button
+            type="button"
+            onclick="document.getElementById('testBottomSheet').closeSheet()"
+          >
+            closeSheet
+          </button>
+          <button
+            type="button"
+            onclick="document.getElementById('testBottomSheet').fullSheet()"
+          >
+            fullSheet
+          </button>
+        </div>
+      </main>
+    </bottom-sheet>
+  </body>
+</html>

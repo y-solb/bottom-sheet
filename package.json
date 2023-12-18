@@ -1,0 +1,16 @@
+{
+  "name": "@solb/bottom-sheet",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "yarn build:tsc",
+    "build:tsc": "yarn tsc"
+  },
+  "license": "MIT",
+  "packageManager": "yarn@3.2.4",
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "typescript": "^5.3.3"
+  }
+}

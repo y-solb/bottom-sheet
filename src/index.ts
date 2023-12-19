@@ -6,11 +6,11 @@ class BottomSheet extends HTMLElement {
 
   constructor() {
     super();
-    console.log("constructor");
+
     this.defaultVh = 0; // 기본 높이값(vh) -> 고정 값
     this.beforeVh = 0; // 변경 전 높이값(vh) -> 변경에 따라 바뀌는 이전 높이값
-    this.sheetHeight = 0; // 드래그 중 변경되는 높이값(vh)
-    this.mobileVh = window.innerHeight * 0.01; // (1vh)
+    this.sheetHeight = 0; // .sheet__wrapper의 높이값(vh)
+    this.mobileVh = window.innerHeight * 0.01; // 1vh
   }
 
   connectedCallback() {
@@ -25,7 +25,6 @@ class BottomSheet extends HTMLElement {
   }
 
   renderBottomSheet() {
-    console.log("renderBottomSheet");
     const id = this.getAttribute("id");
 
     this.className = "customBottomsheet";
@@ -189,6 +188,3 @@ class BottomSheet extends HTMLElement {
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 customElements.define("bottom-sheet", BottomSheet);
-
-// TODO: defaultVh 할당 후 변경 안 되도록 하는 방법 찾아보기
-// TODO: 변수명 적절하게 변경하기

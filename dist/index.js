@@ -79,10 +79,8 @@ class BottomSheet extends HTMLElement {
     }
     setSheetHeight(value) {
         const sheetWrapper = this.querySelector(".sheet__wrapper");
-        if (!isMobile) {
-            sheetWrapper.classList.add("fullscreen");
+        if (!isMobile)
             return;
-        }
         this.sheetHeight = Math.max(0, Math.min(100, value));
         sheetWrapper.style.height = `${this.sheetHeight * this.mobileVh}px`;
         if (this.sheetHeight === 100) {

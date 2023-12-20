@@ -5,7 +5,6 @@ declare class BottomSheet extends HTMLElement {
     mobileVh: number;
     constructor();
     connectedCallback(): void;
-    disconnectedCallback(): void;
     renderBottomSheet(): void;
     setSheetHeight(value: number): void;
     setIsSheetShown(value: boolean): void;

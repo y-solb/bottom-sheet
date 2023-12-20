@@ -2,18 +2,14 @@
 class BottomSheet extends HTMLElement {
     constructor() {
         super();
-        this.defaultVh = 0; // 기본 높이값(vh) -> 고정 값
-        this.beforeVh = 0; // 변경 전 높이값(vh) -> 변경에 따라 바뀌는 이전 높이값
-        this.sheetHeight = 0; // .sheet__wrapper의 높이값(vh)
+        this.defaultVh = 0; // default height of .sheet__wrapper (vh)
+        this.beforeVh = 0; // height of .sheet__wrapper before change (vh)
+        this.sheetHeight = 0; // height of .sheet__wrapper (vh)
         this.mobileVh = window.innerHeight * 0.01; // 1vh
     }
     connectedCallback() {
-        this.setAttribute("aria-hidden", "true"); // 스크린 리더와 같은 보조 기술을 사용하는 사용자를 대상으로 콘텐츠의 탐색을 제한
+        this.setAttribute("aria-hidden", "true");
         this.renderBottomSheet();
-        // DOM에 추가(렌더링)
-    }
-    disconnectedCallback() {
-        // DOM에 제거(엘리먼트를 정리)
     }
     renderBottomSheet() {
         const id = this.getAttribute("id");
@@ -64,7 +60,7 @@ class BottomSheet extends HTMLElement {
                 dragPosition = 0;
                 sheetWrapperDiv.classList.remove("not-selectable");
                 if (this.sheetHeight < this.beforeVh - 5) {
-                    this.closeSheet(); // 닫기
+                    this.closeSheet();
                 }
                 else if (this.sheetHeight > this.defaultVh + 10) {
                     this.setSheetHeight(100);
@@ -81,7 +77,6 @@ class BottomSheet extends HTMLElement {
             this.addEventListener("touchend", onTouchEnd, { passive: true });
         }
     }
-    // sheetHeight 높이 변경
     setSheetHeight(value) {
         const sheetWrapper = this.querySelector(".sheet__wrapper");
         if (!isMobile) {
@@ -97,8 +92,6 @@ class BottomSheet extends HTMLElement {
             sheetWrapper.classList.remove("fullscreen");
         }
     }
-    // true면 열기
-    // false면 닫기
     setIsSheetShown(value) {
         this.setAttribute("aria-hidden", String(!value));
         if (value) {
@@ -107,7 +100,6 @@ class BottomSheet extends HTMLElement {
         else {
             const shownBottomSheet = Array.from(document.querySelectorAll("bottom-sheet")).find((el) => el.ariaHidden === "false");
             if (!shownBottomSheet) {
-                // 열린 bottomsheet가 있다면 통과
                 document.body.classList.remove("no-scroll");
             }
         }

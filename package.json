@@ -1,9 +1,25 @@
 {
   "name": "@solb/bottom-sheet",
   "version": "0.0.1",
+  "description": "This is a bottomsheet created with pure JavaScript using Web Components.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y-solb/bottom-sheet"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "bottomsheet",
+    "bottom-sheet",
+    "customElements",
+    "Web Components"
+  ],
+  "author": "Yoon Solbi (https://sollogging.tistory.com/)",
   "type": "module",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "prepack": "yarn build",
     "build": "yarn build:tsc",
     "build:tsc": "yarn tsc"
   },

@@ -12,14 +12,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],\
     "dependencyTreeRoots": [\
       {\
-        "name": "bottomsheet",\
+        "name": "@solb/bottom-sheet",\
         "reference": "workspace:."\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["bottomsheet", ["workspace:."]]\
+      ["@solb/bottom-sheet", ["workspace:."]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -34,6 +34,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
+      ["@solb/bottom-sheet", [\
+        ["workspace:.", {\
+          "packageLocation": "./",\
+          "packageDependencies": [\
+            ["@solb/bottom-sheet", "workspace:."],\
+            ["@types/node", "npm:20.10.4"],\
+            ["typescript", "patch:typescript@npm%3A5.3.3#~builtin<compat/typescript>::version=5.3.3&hash=701156"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
       ["@types/node", [\
         ["npm:20.10.4", {\
           "packageLocation": "./.yarn/cache/@types-node-npm-20.10.4-45b062d723-054b296417.zip/node_modules/@types/node/",\
@@ -42,17 +53,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["undici-types", "npm:5.26.5"]\
           ],\
           "linkType": "HARD"\
-        }]\
-      ]],\
-      ["bottomsheet", [\
-        ["workspace:.", {\
-          "packageLocation": "./",\
-          "packageDependencies": [\
-            ["bottomsheet", "workspace:."],\
-            ["@types/node", "npm:20.10.4"],\
-            ["typescript", "patch:typescript@npm%3A5.3.3#~builtin<compat/typescript>::version=5.3.3&hash=701156"]\
-          ],\
-          "linkType": "SOFT"\
         }]\
       ]],\
       ["typescript", [\

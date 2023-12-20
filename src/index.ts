@@ -2,7 +2,7 @@ class BottomSheet extends HTMLElement {
   defaultVh: number;
   beforeVh: number;
   sheetHeight: number;
-  mobileVh: number;
+  readonly mobileVh: number;
 
   constructor() {
     super();
@@ -103,14 +103,14 @@ class BottomSheet extends HTMLElement {
     }
   }
 
-  setSheetHeight(value: number) {
+  setSheetHeight(heightVh: number) {
     const sheetWrapper = this.querySelector(
       ".sheet__wrapper"
     )! as HTMLDivElement;
 
     if (!isMobile) return;
 
-    this.sheetHeight = Math.max(0, Math.min(100, value));
+    this.sheetHeight = Math.max(0, Math.min(100, heightVh));
     sheetWrapper.style.height = `${this.sheetHeight * this.mobileVh}px`;
 
     if (this.sheetHeight === 100) {
@@ -120,9 +120,9 @@ class BottomSheet extends HTMLElement {
     }
   }
 
-  setIsSheetShown(value: boolean) {
-    this.setAttribute("aria-hidden", String(!value));
-    if (value) {
+  setIsSheetShown(isShown: boolean) {
+    this.setAttribute("aria-hidden", String(!isShown));
+    if (isShown) {
       document.body.classList.add("no-scroll");
     } else {
       const shownBottomSheet = Array.from(

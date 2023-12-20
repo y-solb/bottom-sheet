@@ -2,12 +2,12 @@ declare class BottomSheet extends HTMLElement {
     defaultVh: number;
     beforeVh: number;
     sheetHeight: number;
-    mobileVh: number;
+    readonly mobileVh: number;
     constructor();
     connectedCallback(): void;
     renderBottomSheet(): void;
-    setSheetHeight(value: number): void;
-    setIsSheetShown(value: boolean): void;
+    setSheetHeight(heightVh: number): void;
+    setIsSheetShown(isShown: boolean): void;
     openSheet(): void;
     openFullSheet(): void;
     closeSheet(): void;

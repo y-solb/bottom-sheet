@@ -77,11 +77,11 @@ class BottomSheet extends HTMLElement {
             this.addEventListener("touchend", onTouchEnd, { passive: true });
         }
     }
-    setSheetHeight(value) {
+    setSheetHeight(heightVh) {
         const sheetWrapper = this.querySelector(".sheet__wrapper");
         if (!isMobile)
             return;
-        this.sheetHeight = Math.max(0, Math.min(100, value));
+        this.sheetHeight = Math.max(0, Math.min(100, heightVh));
         sheetWrapper.style.height = `${this.sheetHeight * this.mobileVh}px`;
         if (this.sheetHeight === 100) {
             sheetWrapper.classList.add("fullscreen");
@@ -90,9 +90,9 @@ class BottomSheet extends HTMLElement {
             sheetWrapper.classList.remove("fullscreen");
         }
     }
-    setIsSheetShown(value) {
-        this.setAttribute("aria-hidden", String(!value));
-        if (value) {
+    setIsSheetShown(isShown) {
+        this.setAttribute("aria-hidden", String(!isShown));
+        if (isShown) {
             document.body.classList.add("no-scroll");
         }
         else {

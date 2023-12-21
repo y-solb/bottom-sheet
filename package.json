@@ -1,6 +1,6 @@
 {
   "name": "@solb/bottom-sheet",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "This is a bottomsheet created with pure JavaScript using Web Components.",
   "repository": {
     "type": "git",

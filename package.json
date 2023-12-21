@@ -18,6 +18,10 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/index.js",
+    "style/style.css"
+  ],
   "scripts": {
     "prepack": "yarn build",
     "build": "yarn build:tsc",

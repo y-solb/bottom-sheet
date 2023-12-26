@@ -1,4 +1,4 @@
-class BottomSheet extends HTMLElement {
+export class BottomSheet extends HTMLElement {
   defaultVh: number;
   beforeVh: number;
   sheetHeight: number;

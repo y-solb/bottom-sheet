@@ -1,4 +1,4 @@
-declare class BottomSheet extends HTMLElement {
+export declare class BottomSheet extends HTMLElement {
     defaultVh: number;
     beforeVh: number;
     sheetHeight: number;
@@ -13,4 +13,3 @@ declare class BottomSheet extends HTMLElement {
     closeSheet(): void;
     fullSheet(): void;
 }
-declare const isMobile: boolean;

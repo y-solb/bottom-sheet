@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BottomSheet = void 0;
 class BottomSheet extends HTMLElement {
     constructor() {
         super();
@@ -130,5 +132,6 @@ class BottomSheet extends HTMLElement {
         this.setSheetHeight(100);
     }
 }
+exports.BottomSheet = BottomSheet;
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 customElements.define("bottom-sheet", BottomSheet);

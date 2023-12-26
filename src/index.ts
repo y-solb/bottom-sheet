@@ -46,16 +46,11 @@ class BottomSheet extends HTMLElement {
     const contentDiv = this.querySelector(`#${id} > main`)! as HTMLElement;
     contentDiv.className = `${contentDiv.className} content`;
 
-    const styleLink = document.createElement("link");
-    styleLink.setAttribute("rel", "stylesheet");
-    styleLink.setAttribute("href", "../style/style.css");
-
     sheetWrapperDiv.appendChild(headerDiv);
     sheetWrapperDiv.appendChild(contentDiv);
 
     this.appendChild(overlayDiv);
     this.appendChild(sheetWrapperDiv);
-    this.appendChild(styleLink);
     (this.querySelector(".overlay")! as HTMLDivElement).addEventListener(
       "click",
       () => {

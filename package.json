@@ -20,8 +20,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepack": "yarn build",
-    "build": "yarn build:tsc",
-    "build:tsc": "yarn tsc"
+    "build": "yarn clean && yarn build:tsc",
+    "build:tsc": "yarn tsc",
+    "clean": "rm -rf dist"
   },
   "license": "MIT",
   "packageManager": "yarn@3.2.4",

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6" /* 최신 브라우저는 es6을 대부분 지원한다. */,
-    "module": "commonjs" /* 모듈 시스템을 지정한다. */,
+    "module": "ES6" /* 모듈 시스템을 지정한다. */,
     "lib": [
       "es5",
       "es6",

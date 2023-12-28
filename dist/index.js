@@ -1,4 +1,5 @@
-export class BottomSheet extends HTMLElement {
+"use strict";
+class BottomSheet extends HTMLElement {
     constructor() {
         super();
         this.defaultVh = 0; // default height of .sheet__wrapper (vh)

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import '@solb/bottom-sheet';
+import '@solb/bottom-sheet/style/style.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

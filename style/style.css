@@ -2,7 +2,7 @@
 bottom-sheet {
   display: none;
 }
-bottom-sheet[aria-hidden="true"] {
+bottom-sheet[aria-hidden='true'] {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -73,7 +73,7 @@ bottom-sheet[aria-hidden="true"] {
 .customBottomsheet .sheet__wrapper:not(.not-selectable) {
   transition: var(--default-transitions), height 0.5s;
 }
-.customBottomsheet[aria-hidden="true"] .sheet__wrapper {
+.customBottomsheet[aria-hidden='true'] .sheet__wrapper {
   transform: translateY(100%);
 }
 .customBottomsheet .draggable-area {

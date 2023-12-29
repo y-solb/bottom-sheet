@@ -14,33 +14,37 @@ class BottomSheet extends HTMLElement {
   }
 
   connectedCallback() {
-    this.setAttribute("aria-hidden", "true");
+    this.setAttribute('aria-hidden', 'true');
     this.renderBottomSheet();
   }
 
   renderBottomSheet() {
-    const id = this.getAttribute("id");
+    const id = this.getAttribute('id');
 
-    this.className = "customBottomsheet";
+    this.className = 'customBottomsheet';
     if (!isMobile) {
-      this.classList.add("_modal");
+      this.classList.add('_modal');
     }
 
-    const overlayDiv = document.createElement("div");
-    overlayDiv.className = "overlay";
+    const overlayDiv = document.createElement('div');
+    overlayDiv.className = 'overlay';
 
-    const sheetWrapperDiv = document.createElement("div");
-    sheetWrapperDiv.className = "sheet__wrapper";
+    const sheetWrapperDiv = document.createElement('div');
+    sheetWrapperDiv.className = 'sheet__wrapper';
 
-    const headerDiv = document.createElement("header");
-    headerDiv.className = "controls";
+    const headerDiv = document.createElement('header');
+    headerDiv.className = 'controls';
     headerDiv.innerHTML = `
       <div class="draggable-area">
-            <div class="draggable-thumb"></div>
-          </div>
-      <div class="title__wrapper">
-        <span class="title">${this.getAttribute("title")}</span>
+        <div class="draggable-thumb"></div>
       </div>
+      ${
+        this.getAttribute('title')
+          ? `<div class="title__wrapper">
+            <span class="title">${this.getAttribute('title')}</span>
+          </div>`
+          : ``
+      }
     `;
 
     const contentDiv = this.querySelector(`#${id} > main`)! as HTMLElement;
@@ -51,8 +55,8 @@ class BottomSheet extends HTMLElement {
 
     this.appendChild(overlayDiv);
     this.appendChild(sheetWrapperDiv);
-    (this.querySelector(".overlay")! as HTMLDivElement).addEventListener(
-      "click",
+    (this.querySelector('.overlay')! as HTMLDivElement).addEventListener(
+      'click',
       () => {
         this.closeSheet();
       }
@@ -60,14 +64,14 @@ class BottomSheet extends HTMLElement {
 
     if (isMobile) {
       const draggableAreaDiv = this.querySelector(
-        ".draggable-area"
+        '.draggable-area'
       )! as HTMLDivElement;
 
       let dragPosition = 0;
 
       const onTouchStart = (event: TouchEvent) => {
         dragPosition = event.touches[0].clientY;
-        sheetWrapperDiv.classList.add("not-selectable");
+        sheetWrapperDiv.classList.add('not-selectable');
       };
 
       const onTouchMove = (event: TouchEvent) => {
@@ -82,7 +86,7 @@ class BottomSheet extends HTMLElement {
 
       const onTouchEnd = () => {
         dragPosition = 0;
-        sheetWrapperDiv.classList.remove("not-selectable");
+        sheetWrapperDiv.classList.remove('not-selectable');
 
         if (this.sheetHeight < this.beforeVh - 5) {
           this.closeSheet();
@@ -94,17 +98,17 @@ class BottomSheet extends HTMLElement {
         this.beforeVh = this.sheetHeight;
       };
 
-      draggableAreaDiv.addEventListener("touchstart", onTouchStart, {
+      draggableAreaDiv.addEventListener('touchstart', onTouchStart, {
         passive: true,
       });
-      this.addEventListener("touchmove", onTouchMove, { passive: true });
-      this.addEventListener("touchend", onTouchEnd, { passive: true });
+      this.addEventListener('touchmove', onTouchMove, { passive: true });
+      this.addEventListener('touchend', onTouchEnd, { passive: true });
     }
   }
 
   setSheetHeight(heightVh: number) {
     const sheetWrapper = this.querySelector(
-      ".sheet__wrapper"
+      '.sheet__wrapper'
     )! as HTMLDivElement;
 
     if (!isMobile) return;
@@ -113,23 +117,23 @@ class BottomSheet extends HTMLElement {
     sheetWrapper.style.height = `${this.sheetHeight * this.mobileVh}px`;
 
     if (this.sheetHeight === 100) {
-      sheetWrapper.classList.add("fullscreen");
+      sheetWrapper.classList.add('fullscreen');
     } else {
-      sheetWrapper.classList.remove("fullscreen");
+      sheetWrapper.classList.remove('fullscreen');
     }
   }
 
   setIsSheetShown(isShown: boolean) {
-    this.setAttribute("aria-hidden", String(!isShown));
+    this.setAttribute('aria-hidden', String(!isShown));
     if (isShown) {
-      document.body.classList.add("no-scroll");
+      document.body.classList.add('no-scroll');
     } else {
       const shownBottomSheet = Array.from(
-        document.querySelectorAll("bottom-sheet")
-      ).find((el) => el.ariaHidden === "false");
+        document.querySelectorAll('bottom-sheet')
+      ).find((el) => el.ariaHidden === 'false');
 
       if (!shownBottomSheet) {
-        document.body.classList.remove("no-scroll");
+        document.body.classList.remove('no-scroll');
       }
     }
   }
@@ -137,11 +141,11 @@ class BottomSheet extends HTMLElement {
   openSheet() {
     if (this.defaultVh === 0) {
       const sheetWrapperDiv = this.querySelector(
-        ".sheet__wrapper"
+        '.sheet__wrapper'
       )! as HTMLDivElement;
 
-      if (this.getAttribute("vh")) {
-        this.defaultVh = Number(this.getAttribute("vh"));
+      if (this.getAttribute('vh')) {
+        this.defaultVh = Number(this.getAttribute('vh'));
       } else {
         this.defaultVh = Number(
           (sheetWrapperDiv.offsetHeight / window.innerHeight) * 100
@@ -173,4 +177,4 @@ class BottomSheet extends HTMLElement {
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-customElements.define("bottom-sheet", BottomSheet);
+customElements.define('bottom-sheet', BottomSheet);

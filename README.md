@@ -1,6 +1,6 @@
 # @solb/bottom-sheet
 
-Bottomsheet component made with pure JavaScript. When used on the mobile web or app, it appears as a bottomsheet, and on the web it appears as a modal. ([Demo]())
+Bottomsheet component made with pure JavaScript. When used on the mobile web or app, it appears as a bottomsheet, and on the web it appears as a modal. ([Demo](https://y-solb.github.io/bottom-sheet/examples/html/index.html))
 
 This component is built with [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), offering the key advantage of universal usability. You can employ it across various frameworks or even without any framework. Therefore, you can integrate this bottom sheet seamlessly in different environments such as React, Vue, and more.
 
@@ -68,6 +68,35 @@ Examples of usage in react, nextjs, and vue can be seen [here ](https://github.c
       </button>
     </div>
   </main>
+</bottom-sheet>
+```
+
+## Props
+
+### title (optional)
+
+Title of bottomsheet
+
+```html
+<bottom-sheet title="Title is Lorem ipsum"> ... </bottom-sheet>
+```
+
+### vh (optional)
+
+Default vh(viewport height) of bottomsheet
+If this value is not present, the default is determined by calculating the height.
+
+```html
+<bottom-sheet vh="50"> ... </bottom-sheet>
+```
+
+### class (optional)
+
+Adds style to the main of bottomsheet
+
+```html
+<bottom-sheet>
+  <main class="bg-blue"></main>
 </bottom-sheet>
 ```
 

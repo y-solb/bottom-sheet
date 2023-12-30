@@ -1,4 +1,6 @@
 import './assets/main.css'
+import '@solb/bottom-sheet'
+import '@solb/bottom-sheet/style/style.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
